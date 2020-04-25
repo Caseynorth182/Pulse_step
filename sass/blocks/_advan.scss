@@ -1,0 +1,46 @@
+.advan {
+    min-height: 470px;
+    padding: 5% 10px 78px 10px;
+    background-color: #f6f6f6;
+    &__title {
+        text-align: center;
+        color: #0d0d0d;
+        font-size: 30px;
+        font-weight: 700;
+        margin-bottom: 65px;
+    }
+    &__wrapper {
+        display: flex;
+        margin: 0 auto;
+        justify-content: space-around;
+        align-items: flex-start;
+        align-content: flex-end;
+        flex-wrap: nowrap;
+    }
+    &__icons {
+        width: 100%;
+        text-align: center;
+        img {
+            margin-bottom: 25px;
+        }
+    }
+    &__icon_big{
+        margin: 0 auto;
+    }
+    &__subtitle {
+        color: #0d0d0d;
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 26px;
+    }
+    p {
+        color: #0d0d0d;
+        font-size: 14px;
+        font-weight: 400;
+    }
+    a {
+        display: inline;
+        color: $main-color;
+        text-decoration: underline;
+    }
+}

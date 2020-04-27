@@ -1,0 +1,38 @@
+@keyframes heartbeat {
+    from {
+        transform: scale(1);  //** Трансформирует Элемент => Скейл(маштаб) 
+    }
+
+    50% {
+        transform: scale(1.3); //** Увеличели на 10%
+    }
+
+    to {
+        transform: scale(1); //** Вернуи в сстоковый вид
+    }
+}
+@keyframes test {
+    from {
+        transform: rotate(1deg);
+    }
+    50% {
+        transform: rotate(35deg);
+    }
+    to {
+        transform: rotate(1deg);
+    }
+}
+@keyframes last {
+    from {
+        transform: rotate(-1deg);
+    }
+    25% {
+        transform: rotate(-35deg);
+    }
+    50% {
+        transform: rotate(35deg);
+    }
+    to {
+        transform: rotate(-1deg);
+    }
+}

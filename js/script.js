@@ -1,4 +1,6 @@
 $(document).ready(function(){
+    //! Каруселька -Jquery
+
     $('.carousel__inner').slick({
         speed: 1200,
         adaptiveHeight: true,
@@ -14,7 +16,9 @@ $(document).ready(function(){
             }
         ]
     });
-    
+
+    //! Табы , работа по принципу, добавить отнять класс Актив -Jquery
+
     $('ul.catalog__tabs').on('click', 'li:not(.catalog__tab_active)', function() {
         $(this)
           .addClass('catalog__tab_active').siblings().removeClass('catalog__tab_active')
@@ -34,7 +38,7 @@ $(document).ready(function(){
     toggleSlide('.catalog-item__link');
     toggleSlide('.catalog-item__back');
 
-    // Modal
+    // Modal -Jquery
 
     $('[data-modal=consultation]').on('click', function() {
         $('.overlay, #consultation').fadeIn('slow');
@@ -49,7 +53,7 @@ $(document).ready(function(){
             $('.overlay, #order').fadeIn('slow');
         })
     });
-
+        //! Валидашка форм  -Jquery
     function validateForms(form){
         $(form).validate({
             rules: {
@@ -76,11 +80,49 @@ $(document).ready(function(){
             }
         });
     };
-
+    //! Валидация Форм и маска  -Jquery
     validateForms('#consultation-form');
     validateForms('#consultation form');
     validateForms('#order form');
 
     $('input[name=phone]').mask("+7 (999) 999-99-99");
+
+    //! Всплывашка Модалка с благодарностью после отправки почты (PHP)     -Jquery + PHP
+    $('form').submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            type:"post",
+            url: "mailer/mailer/smart.php",
+            data: $(this).serialize()
+        }).done(function() {
+            $(this).find("input").val("")
+            $('#consultation, #order').fadeOut();
+            $('.overlay, #thanks').fadeIn('slow');
+            $('form').trigger('reset');
+        });
+        return false;
+    })
+
+    //! Скрипт скрола и появления иконки(Вврех) -Jquery
+    
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 1600) {
+            $('.pageup').fadeIn();
+        } else {
+            $('.pageup').fadeOut();
+        }
+    });
+
+    //! Плавная прокруточка сайта  -Jquery
+
+    $("a[href^=#up]").click(function(){
+        const _href = $(this).attr("href");
+        $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
+        return false;
+    });
+
+    //**WOW Библиотека для анимации */
+    new WOW().init();
+    
 });
 
